@@ -7,6 +7,9 @@ const Message = React.createClass({
   },
 
   render() {
+  	const {name, message} = this.props.message;
+
+  	return <p>{name}: {message}</p>;
   }
 });
 
