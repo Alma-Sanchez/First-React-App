@@ -54,9 +54,7 @@ const App = React.createClass({
     const messageDivs = this.state.messages.map(this.renderMessageDiv);
     const {newMessage, name} = this.state;
     
-    return {
-
-      <div>
+    return <div>
         <h2>ChatMe</h2>
         <div>
           {messageDivs}
@@ -65,8 +63,7 @@ const App = React.createClass({
           <Input label={'Message'} value={newMessage} onChange={this.handleMessageChange} onKeyPress={this.handleKeyPress} />
           <Input label={'Name'} value={name} onChange={this.handleNameChange} />
         </div>
-      </div>
-    };
+      </div>;
   }
 });
 
