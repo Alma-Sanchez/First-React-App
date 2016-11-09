@@ -2,6 +2,7 @@ import React from 'react';
 import Firebase from './firebase-wrapper'; // Import Firebase library
 import Message from './components/Message.jsx';
 import Input from './components/Input.jsx';
+import style from './styles/App.less';
 
 const App = React.createClass({
   getInitialState() {
@@ -54,16 +55,24 @@ const App = React.createClass({
     const messageDivs = this.state.messages.map(this.renderMessageDiv);
     const {newMessage, name} = this.state;
     
-    return <div>
+    return (<div>
+    <nav className = "container">
+      <div className="container">
         <h2>ChatMe</h2>
-        <div>
+      </div>
+    </nav>
+    <div className="container">
+      <div className="eight columns messages">
+        <div className="scrollView">
           {messageDivs}
         </div>
-        <div>
-          <Input label={'Message'} value={newMessage} onChange={this.handleMessageChange} onKeyPress={this.handleKeyPress} />
-          <Input label={'Name'} value={name} onChange={this.handleNameChange} />
-        </div>
-      </div>;
+      </div>
+    </div>
+    <div className="four columns">
+      <Input label={'Message'} value={newMessage} onChange={this.handleMessageChange} onKeyPress={this.handleKeyPress} />
+      <Input label={'Name'} value={name} onChange={this.handleNameChange} />
+    </div>
+  </div>);
   }
 });
 
